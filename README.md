@@ -3,3 +3,4 @@ The portfolio of CryptoCurrenciesBYE for Roblox Studio. This displays all the th
 
 # Pages
 ## Assets
+[Reconcile.md](Reconcile.md) <em>(filtering through tables and replacing missing, extra, or incorrect table values.)</em>
