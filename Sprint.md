@@ -34,9 +34,13 @@ RunService.Heartbeat:Connect(function(delta)
 			local character = player.Character
 			if character then
 				local humanoid = character:FindFirstChildOfClass("Humanoid")
-				if humanoid then
+				local humanoidrootpart = character:FindFirstChild("HumanoidRootPart")
+				if humanoid and humanoidrootpart then
 					local stamina = humanoid:GetAttribute("Stamina") or 100
 					if stats.sprinting then
+						local hrpvel = humanoidrootpart.AssemblyLinearVelocity
+						local vel = Vector3.new(hrpvel.X, 0, hrpvel.Z).Magnitude
+						if vel <= 1 then return end
 						humanoid:SetAttribute("Stamina", math.max(0, stamina - 1))
 						stats.sprintinterval = currenttime + 0.08
 						humanoid.WalkSpeed = 26
@@ -80,7 +84,7 @@ UIS.InputBegan:Connect(function(Input, GP)
 	end
 end)
 
-UIS.InputBegan:Connect(function(Input)
+UIS.InputEnded:Connect(function(Input)
 	if Input.KeyCode == Enum.KeyCode.LeftShift then
 		sprintEvent:FireServer(false)
 	end
