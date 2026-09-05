@@ -3,6 +3,7 @@ The portfolio of CryptoCurrenciesBYE for Roblox Studio. This displays all the th
 
 # Pages
 ## Useful
-[Reconcile.md](Reconcile.md) <em>(filtering through tables and replacing missing, extra, or incorrect table values.)</em>
+[Reconcile.md](Reconcile.md) <em>(filtering through tables and replacing missing, extra, or incorrect table values.)</em><br>
+[SpectatingSystem.md](SpectatingSystem.md) <em>(uses <b>CameraSubject</b> to view other players)</em>
 
 ## Just For Fun
