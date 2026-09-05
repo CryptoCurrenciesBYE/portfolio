@@ -1,9 +1,8 @@
 # Portfolio
 ### Spectating System
-The spectating system below is very useful for players to see what's going on in-game and displays who's spectating them.
+The spectating system below is very useful for players to see what's going on in-game.
 
 ## Script Info
-<em>(If you don't want the script where the players can see who's spectating them, don't put the server script in)</em>
 ```lua
 -- Local Script - StarterCharacterScripts
 -- Partial Code: The code below are local functions and important stuff needed.
