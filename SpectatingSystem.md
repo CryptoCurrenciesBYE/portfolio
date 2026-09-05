@@ -11,27 +11,36 @@ local Workspace = game:GetService("Workspace")
 local Camera = Workspace.CurrentCamera
 local Players = game:GetService("Players")
 
+local client = Players.LocalPlayer
+
 Camera.CameraType = Enum.CameraType.Custom
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local RequestSpectateList = ReplicatedStorage:WaitForChild("RequestSpectate", 5) :: RemoteEvent -- Remove this if you don't want to display who's spectating them.
 
-local function Unspectate() -- Brings the camera back to the player
-	Camera.CameraSubject = Players.LocalPlayer.Character
-	RequestSpectateList:FireServer(false)
-end
-
-local function Spectate(player: Player) -- Spectates a given player
-	local character = player.Character or player.CharacterAdded:Wait()
+local function Unspectate()
+	local character = client.Character
 	if character then
-		Camera.CameraSubject = character
-		RequestSpectateList:FireServer(true, player)
+		local humanoid = character:FindFirstChildOfClass("Humanoid")
+		if humanoid then
+			Camera.CameraSubject = humanoid
+		end
 	end
 end
 
-local function SpectateAsset(asset: Instance) -- Spectate an instance instead of a player (like spectating a model, or part)
+local function Spectate(player: Player)
+	local character = player.Character or player.CharacterAdded:Wait()
+	if character then
+		local humanoid = character:FindFirstChildOfClass("Humanoid")
+		if humanoid then
+			Camera.CameraSubject = humanoid
+		end
+	end
+end
+
+local function SpectateAsset(asset: Instance)
 	Camera.CameraSubject = asset
 end
+
 
 --[[ Example usage:
 local AllPlayers = Players:GetPlayers()
@@ -43,8 +52,8 @@ task.wait(1)
 Unspectate()
 --]]
 ```
-<em>(The server script will attempt to find a remote event, and if not, it will create one in replicated storage to make it easier for you.)</em>
 
 ### Output:
+When the <em><b>Spectate</em></b> function is called, the spectator's camera is positioned on the player's humanoid and follows the player using <em><b>CameraSubject</em></b>. And when the <em><b>Unspectate</em></b> function is called, the spectator's camera is position back to their humanoid.
 
   
