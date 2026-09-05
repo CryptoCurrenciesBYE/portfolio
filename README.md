@@ -5,5 +5,6 @@ The portfolio of CryptoCurrenciesBYE for Roblox Studio. This displays all the th
 ## Useful
 [Reconcile.md](Reconcile.md) <em>(filtering through tables and replacing missing, extra, or incorrect table values.)</em><br>
 [SpectatingSystem.md](SpectatingSystem.md) <em>(uses <b>CameraSubject</b> to view other players)</em>
+[Sprint.md](Sprint.md) <em>(sprinting with stamina. Stamina variable kept in the humanoid's attribute for the client's convenience)</em)
 
 ## Just For Fun
